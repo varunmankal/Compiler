@@ -694,62 +694,7 @@ public class CodeGenVisitor implements ASTVisitor, Opcodes {
 		}
 		else if(statement_Assign.lhs.ntype==Type.IMAGE)
 		{
-		/*	Label cmpLabel=new Label();
-			Label xLabel=new Label();
-			Label retLabel=new Label();
-			mv.visitInsn(ICONST_0);
-			mv.visitFieldInsn(PUTSTATIC, className,"x", "I");
-			
-			
-			mv.visitJumpInsn(GOTO,cmpLabel);
-			
-			Label trueLabel=new Label();
-			mv.visitLabel(trueLabel);
-			
-			
-			mv.visitFieldInsn(GETSTATIC, className, "y", "I");
-			
-			statement_Assign.e.visit(this, arg);
-			statement_Assign.lhs.visit(this, arg);
-			
-			//mv.visitFieldInsn(GETSTATIC, className, "y", "I");
-			mv.visitInsn(ICONST_1);
-			mv.visitInsn(IADD);
-			mv.visitFieldInsn(PUTSTATIC, className, "y", "I");
-			
-			mv.visitJumpInsn(GOTO, xLabel);
-			
-			
-			mv.visitLabel(cmpLabel);
-			
-			mv.visitInsn(ICONST_0);
-			mv.visitFieldInsn(PUTSTATIC, className,"y", "I");
-			mv.visitFieldInsn(GETSTATIC, className, "x","I");
-			mv.visitFieldInsn(GETSTATIC,className , statement_Assign.lhs.name, ImageSupport.ImageDesc);
-			mv.visitMethodInsn(INVOKESTATIC, ImageSupport.className,"getX",
-					"("+ImageSupport.ImageDesc+")I" ,false);
-			
-			mv.visitJumpInsn(IF_ICMPLT, xLabel);
-	 		mv.visitJumpInsn(GOTO, retLabel);
-			
-			mv.visitLabel(xLabel);
-			
-			//mv.visitFieldInsn(GETSTATIC, className, "x","I");
-			mv.visitFieldInsn(GETSTATIC, className, "y","I");
-			mv.visitFieldInsn(GETSTATIC,className , statement_Assign.lhs.name, ImageSupport.ImageDesc);
-			mv.visitMethodInsn(INVOKESTATIC, ImageSupport.className,"getY",
-					"("+ImageSupport.ImageDesc+")I" ,false);
-			mv.visitJumpInsn(IF_ICMPLT, trueLabel);
-			//mv.visitFieldInsn(GETSTATIC, className, "x", "I");
-			mv.visitInsn(ICONST_1);
-			mv.visitInsn(IADD);
-			mv.visitFieldInsn(PUTSTATIC, className, "x", "I");
-			mv.visitJumpInsn(GOTO,cmpLabel);
-			mv.visitLabel(retLabel);*/
-			
-			
-			
-			mv.visitFieldInsn(GETSTATIC, className, statement_Assign.lhs.name, ImageSupport.ImageDesc);
+	    mv.visitFieldInsn(GETSTATIC, className, statement_Assign.lhs.name, ImageSupport.ImageDesc);
             mv.visitInsn(DUP);
             mv.visitMethodInsn(INVOKESTATIC, ImageSupport.className,
                     "getX",ImageSupport.getXSig, false);
